@@ -1,0 +1,14 @@
+import win32com.client
+
+# Create an Outlook application object
+outlook = win32com.client.Dispatch('Outlook.Application')
+
+# Get the Inbox folder
+inbox = outlook.Session.GetDefaultFolder(6)
+
+# Get all the emails in the Inbox folder
+emails = inbox.Items
+
+# Loop through the emails and print their subjects
+for email in emails:
+    print(email.Subject)
